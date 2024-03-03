@@ -20,7 +20,7 @@ void UMover::BeginPlay()
 	Super::BeginPlay();
 
 	OriginalLocation = GetOwner()->GetActorLocation();
-	
+
 }
 
 
@@ -38,8 +38,13 @@ void UMover::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 		FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, TargetLocation, DeltaTime, Speed);
 		GetOwner()->SetActorLocation(NewLocation);
 	}
-
-	
-	
 }
 
+void UMover::SetShouldMove(bool ArgShouldMove)
+{
+	//UE_LOG(LogTemp, Display, TEXT("setting should move in mover.cpp. %hhd"), ArgShouldMove);
+	ShouldMove = ArgShouldMove;
+}
+
+
+ 
